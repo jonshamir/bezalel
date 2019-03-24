@@ -1,0 +1,128 @@
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Miriam+Libre');
+
+    body {
+      font-family: 'Miriam Libre', sans-serif;
+      direction: rtl;
+    }
+    #talk {
+      width: 100%;
+    }
+    .message {
+      background-color: #ccc;
+      padding: .5em 1em;
+      margin: .5em;
+      border-radius: 1em;
+      position: relative;
+      margin-bottom: 15px;
+      max-width: 50%;
+    }
+    .message::before {
+      content: " ";
+      background-size: cover;
+      background-image: url('yossi.png');
+      border-radius: 300px;
+      width: 35px;
+      height: 35px;
+      display: block;
+      position: absolute;
+      top: -5px;
+      right: -45px;
+
+    }
+    .jack {
+      border-top-left-radius: 0;
+      margin-left: 50px;
+      margin-right: auto;
+    }
+    .jack::before {
+      background-image: url('jack.png');
+      right: auto;
+      left: -45px !important;
+    }
+    .yossi {
+      background-color: #4A9BF0;
+      border-top-right-radius: 0;
+      margin-right: 50px;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="talk">
+    <div class="message jack">
+      Howdy partner! מדבר ג'ק, הגעת למספרת "ממפיס". איך אוכל לעזור לך היום?
+    </div>
+    <div class="message yossi">
+      אהלן ג'ק. אני רוצה לקבוע תור כמה שיותר מהר!
+    </div>
+    <div class="message jack">
+      מצוין! תן לי לבדוק
+    </div>
+    <div class="message jack">
+      יש לנו תור אחרון להיום 21:30, או מחר בבוקר ב-08:00.
+    </div>
+    <div class="message yossi">
+      לא טוב 8!
+    </div>
+    <div class="message jack">
+      יש לנו תור אחרון להיום 21:30, לקבוע לך?
+    </div>
+    <div class="message yossi">
+      טוב יאללה, אם אין יותר מוקדם
+    </div>
+    <div class="message jack">
+      אין תור יותר מוקדם. לקבוע לך ב21:30?
+    </div>
+    <div class="message yossi">
+      כן כן.
+    </div>
+    <div class="message jack">
+      תרצה עיצוב זקן, עיצוב שיער או שניהם?
+    </div>
+    <div class="message yossi">
+      גם וגם.
+    </div>
+    <div class="message jack">
+      נהדר, תוכל לומר לי את שמך המלא ומספר הטלפון שלך?
+    </div>
+    <div class="message yossi">
+      יוסי שמיל, 050-2341342
+    </div>
+    <div class="message jack">
+      Okay, רשמתי אותך. תזכורת תשלח למספר הטלפון שלך.
+    </div>
+    <div class="message jack">
+      תודה על הזמנתך, האם אוכל לסייע במשהו נוסף?
+    </div>
+    <div class="message yossi">
+      לא
+    </div>
+    <div class="message yossi">
+      רגע כמה זה עולה?
+    </div>
+    <div class="message yossi">
+      ג'ק?
+    </div>
+    <div class="message jack">
+      עיצוב שיער וזקן יעלה 100 ש"ח.
+    </div>
+    <div class="message yossi">
+      טוב נו
+    </div>
+    <div class="message jack">
+      תודה על הזמנתך, האם אוכל לסייע במשהו נוסף?
+    </div>
+    <div class="message yossi">
+      לא זהו תודה
+    </div>
+    <div class="message jack">
+      See you soon!
+    </div>
+  </div>
+</body>
+</html>

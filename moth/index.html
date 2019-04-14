@@ -2,7 +2,8 @@
 <head>
   <title>~ The Moth ~</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222222">
+  <meta name="theme-color" content="#222222">
+  <link rel="stylesheet" href="moon.css" />
   <style>
     @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
@@ -23,14 +24,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: block;
+      opacity: 1;
+      transition: opacity 450ms ease;
     }
     #welcome img {
       width: 100%;
     }
 
+    .hidden {
+      opacity: 0 !important;
+    }
 
-
+    #loader {
+      opacity: 1;
+      transition: opacity 450ms ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     #story {
       height: 100vh;
@@ -40,10 +52,6 @@
       display: none;
       opacity: 1;
       transition: opacity 450ms ease;
-    }
-
-    #story.hidden {
-      opacity: 0;
     }
 
     .frame {
@@ -66,7 +74,7 @@
     }
 
     .options img {
-      width: 10%;
+      width: 11%;
       transition: all 250ms ease;
       transform: scale(0.9);
       cursor: pointer;
@@ -90,8 +98,13 @@
   </style>
 </head>
 <body>
-  <div id="welcome">
-    <p>Please turn your device to landscape mode and tap the moth to begin.</p>
+  <div id="loader">
+    <div class="moon">
+      <div class="disc"></div>
+    </div>
+  </div>
+  <div id="welcome" class="hidden">
+    <p>Please turn your device to landscape orientation, then tap the moth to begin.</p>
     <img id="goFS" src="frames/start.png">
   </div>
   <div id="story">
@@ -103,6 +116,24 @@
   </div>
 
   <script type="text/javascript">
+    var loadedCount;
+    function loadImages() {
+      loadedCount = scenes.length;
+      scenes.forEach(scene => {
+        var img = document.createElement('img');
+        img.src = 'frames/' + scene.id + '.jpg';
+        img.addEventListener('load', () => {
+          loadedCount -= 1;
+          if (loadedCount == 0) {
+            document.getElementById('loader').className = 'hidden';
+            document.getElementById('welcome').className = '';
+          }
+        })
+        img.style.display = 'none';
+        document.body.append(img)
+      })
+    }
+
     function toggleFullScreen() {
       var doc = window.document;
       var docEl = doc.documentElement;
@@ -129,7 +160,6 @@
 
     function setScene(id) {
       document.getElementById('story').className = 'hidden';
-
 
       setTimeout(function() {
         document.getElementById('scene-frame').src = '';
@@ -212,6 +242,7 @@
     setScene(0);
     document.getElementById('reset').addEventListener('click', () => setScene(0));
 
+    loadImages();
   </script>
 </body>
 </html>

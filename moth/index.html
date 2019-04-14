@@ -23,20 +23,32 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      display: none;
     }
     #welcome img {
       width: 100%;
     }
+
+
+
+
     #story {
-      width: 100%;
+      height: 100vh;
       max-width: 1200px;
       margin: auto;
       position: relative;
-      display: none;
+      display: block;
     }
     .frame {
-      width: 100%;
+      height: 100%;
+      text-align: center;
     }
+    .frame img {
+      height: 100%;
+      position: absolute;
+      transform: translate(-50%);
+    }
+
     .options {
       height: 10%;
       width: 50%;
@@ -61,8 +73,12 @@
       top: 0;
       right: 0;
       height: 8%;
-      padding: 3%;
+      padding: 1%;
+      margin: 2%;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 400px;
       cursor: pointer;
+      z-index: 10;
     }
   </style>
 </head>
@@ -73,19 +89,35 @@
   </div>
   <div id="story">
     <img src="icons/reset.svg" id="reset">
-    <img src="frames/0.jpg" class="frame">
+    <div class="frame">
+      <img src="frames/0.jpg">
+    </div>
     <div class="options">
       <img src="icons/moon.png">
     </div>
   </div>
 
   <script type="text/javascript">
+    function toggleFullScreen() {
+      var doc = window.document;
+      var docEl = doc.documentElement;
+
+      var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+      var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+      if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
+      }
+      else {
+        cancelFullScreen.call(doc);
+      }
+    }
+
     var goFS = document.getElementById("goFS");
     goFS.addEventListener("click", function() {
-        document.body.requestFullscreen();
-        document.getElementById("welcome").style.display = "none";
-        document.getElementById("story").style.display = "block";
-
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("story").style.display = "block";
+      toggleFullScreen();
     }, false);
 
     var currFrame = 0;

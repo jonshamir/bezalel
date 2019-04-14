@@ -23,7 +23,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: none;
+      display: block;
     }
     #welcome img {
       width: 100%;
@@ -37,7 +37,7 @@
       max-width: 1200px;
       margin: auto;
       position: relative;
-      display: block;
+      display: none;
     }
     .frame {
       height: 100%;
@@ -90,11 +90,9 @@
   <div id="story">
     <img src="icons/reset.svg" id="reset">
     <div class="frame">
-      <img src="frames/0.jpg">
+      <img id="scene-frame" src="frames/0.jpg">
     </div>
-    <div class="options">
-      <img src="icons/moon.png">
-    </div>
+    <div class="options" id="options"></div>
   </div>
 
   <script type="text/javascript">
@@ -120,15 +118,86 @@
       toggleFullScreen();
     }, false);
 
-    var currFrame = 0;
-    function advance(e) {
-      console.log(e.target);
+    var currScene = 0;
+
+    function setScene(id) {
+      document.getElementById('scene-frame').src = 'frames/' + id + '.jpg';
+      document.getElementById('options').innerHTML = '';
+
+      scenes[id].options.forEach(option => {
+        var optLink = document.createElement('img');
+        optLink.src = 'icons/' + option[0] + '.png';
+        optLink.addEventListener('click', () => setScene(option[1]));
+        document.getElementById('options').append(optLink);
+      });
     }
 
-    var options = document.getElementsByClassName("options")[0].children;
-    for (var i = 0; i < options.length; i++) {
-      options[i].addEventListener('click', advance);
-    }
+    var scenes = [
+      {
+        id: '0',
+        options: [['moon', 1]]
+      },
+      {
+        id: '1',
+        options: [['moon', 2], ['window', 7]]
+      },
+      {
+        id: '2',
+        options: [['moon', 3], ['window', 7]]
+      },
+      {
+        id: '3',
+        options: [['moon', 4]]
+      },
+      {
+        id: '4',
+        options: [['moon', 5]]
+      },
+      {
+        id: '5',
+        options: [['moon', 6]]
+      },
+      {
+        id: '6',
+        options: [['window', 7]]
+      },
+      {
+        id: '7',
+        options: [['window', 8]]
+      },
+      {
+        id: '8',
+        options: [['window', 9]]
+      },
+      {
+        id: '9',
+        options: [['window', 10]]
+      },
+      {
+        id: '10',
+        options: [['flame', 11], ['bulb', 12]]
+      },
+      {
+        id: '11',
+        options: []
+      },
+      {
+        id: '12',
+        options: [['bulb', 13]]
+      },
+      {
+        id: '13',
+        options: [['bulb', 14]]
+      },
+      {
+        id: '14',
+        options: [['bulb', 12]]
+      },
+    ];
+
+    setScene(0);
+    document.getElementById('reset').addEventListener('click', () => setScene(0));
+
   </script>
 </body>
 </html>

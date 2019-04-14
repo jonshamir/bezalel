@@ -38,7 +38,14 @@
       margin: auto;
       position: relative;
       display: none;
+      opacity: 1;
+      transition: opacity 450ms ease;
     }
+
+    #story.hidden {
+      opacity: 0;
+    }
+
     .frame {
       height: 100%;
       text-align: center;
@@ -121,15 +128,22 @@
     var currScene = 0;
 
     function setScene(id) {
-      document.getElementById('scene-frame').src = 'frames/' + id + '.jpg';
-      document.getElementById('options').innerHTML = '';
+      document.getElementById('story').className = 'hidden';
 
-      scenes[id].options.forEach(option => {
-        var optLink = document.createElement('img');
-        optLink.src = 'icons/' + option[0] + '.png';
-        optLink.addEventListener('click', () => setScene(option[1]));
-        document.getElementById('options').append(optLink);
-      });
+
+      setTimeout(function() {
+        document.getElementById('scene-frame').src = '';
+        document.getElementById('scene-frame').src = 'frames/' + id + '.jpg';
+        document.getElementById('options').innerHTML = '';
+
+        scenes[id].options.forEach(option => {
+          var optLink = document.createElement('img');
+          optLink.src = 'icons/' + option[0] + '.png';
+          optLink.addEventListener('click', () => setScene(option[1]));
+          document.getElementById('options').append(optLink);
+        });
+        document.getElementById('story').className = '';
+      }, 900);
     }
 
     var scenes = [

@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>~ The Moth ~</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+  <style>
+    body {
+      text-align: center;
+      background-color: #000;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    #story {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+    }
+    .frame {
+      width: 100%;
+    }
+    .options {
+      height: 10%;
+      width: 50%;
+      position: absolute;
+      top: 82%;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .options img {
+      width: 10%;
+      transition: all 250ms ease;
+      transform: scale(0.9);
+      cursor: pointer;
+    }
+
+    .options img:hover {
+      opacity: 1;
+    }
+    #reset {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 8%;
+      padding: 3%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="story">
+    <img src="icons/reset.svg" id="reset">
+    <img src="frames/0.jpg" class="frame">
+    <div class="options">
+      <img src="icons/moon.png">
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var currFrame = 0;
+    function advance(e) {
+      console.log(e.target);
+    }
+
+    var options = document.getElementsByClassName("options")[0].children;
+    for (var i = 0; i < options.length; i++) {
+      options[i].addEventListener('click', advance);
+    }
+  </script>
+</body>
+</html>

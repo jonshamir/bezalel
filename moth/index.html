@@ -4,18 +4,35 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222222">
   <style>
+    @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
+
     body {
       text-align: center;
       background-color: #000;
       overflow: hidden;
       margin: 0;
       padding: 0;
+      font-family: 'Libre Baskerville', serif;
+      color: #b5b5b5;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5em;
+    }
+    #welcome {
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #welcome img {
+      width: 100%;
     }
     #story {
       width: 100%;
       max-width: 1200px;
       margin: auto;
       position: relative;
+      display: none;
     }
     .frame {
       width: 100%;
@@ -50,8 +67,10 @@
   </style>
 </head>
 <body>
-  <button id="goFS">Go fullscreen</button>
-
+  <div id="welcome">
+    <p>Please turn your device to landscape mode and tap the moth to begin.</p>
+    <img id="goFS" src="frames/start.png">
+  </div>
   <div id="story">
     <img src="icons/reset.svg" id="reset">
     <img src="frames/0.jpg" class="frame">
@@ -64,6 +83,9 @@
     var goFS = document.getElementById("goFS");
     goFS.addEventListener("click", function() {
         document.body.requestFullscreen();
+        document.getElementById("welcome").style.display = "none";
+        document.getElementById("story").style.display = "block";
+
     }, false);
 
     var currFrame = 0;

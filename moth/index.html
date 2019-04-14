@@ -50,6 +50,8 @@
   </style>
 </head>
 <body>
+  <button id="goFS">Go fullscreen</button>
+
   <div id="story">
     <img src="icons/reset.svg" id="reset">
     <img src="frames/0.jpg" class="frame">
@@ -59,6 +61,11 @@
   </div>
 
   <script type="text/javascript">
+    var goFS = document.getElementById("goFS");
+    goFS.addEventListener("click", function() {
+        document.body.requestFullscreen();
+    }, false);
+
     var currFrame = 0;
     function advance(e) {
       console.log(e.target);

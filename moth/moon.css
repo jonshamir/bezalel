@@ -15,7 +15,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #222;
+  background-color: #000;
   width: 50%;
   height: 100%;
   -webkit-animation: flip 2s 1s steps(2) infinite alternate;
@@ -46,7 +46,7 @@
           backface-visibility: hidden;
 }
 .disc::before {
-  background-color: #222;
+  background-color: #000;
 }
 .disc::after {
   background-color: #fff;
@@ -97,7 +97,7 @@ html, body {
 }
 
 body {
-  background-color: #222222;
+  background-color: #000000;
   text-align: center;
   color: #ffffff;
   font-family: 'Fira Mono', monospace;

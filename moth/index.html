@@ -29,6 +29,7 @@
     }
     #welcome img {
       width: 100%;
+      max-width: 450px;
     }
 
     .hidden {
@@ -155,6 +156,7 @@
       document.getElementById("welcome").style.display = "none";
       document.getElementById("story").style.display = "block";
       toggleFullScreen();
+      window.scrollTo(0, 1);
     }, false);
 
     var currScene = 0;

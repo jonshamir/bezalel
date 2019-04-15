@@ -91,18 +91,3 @@
     left: 100%;
   }
 }
-html, body {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  background-color: #000000;
-  text-align: center;
-  color: #ffffff;
-  font-family: 'Fira Mono', monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: .1em;
-}

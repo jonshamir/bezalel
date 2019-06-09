@@ -29,42 +29,50 @@ buttons = [
   {
     flower: flowers[198],
     key: 'ArrowUp',
-    color: 'blue'
+    color: 'blue',
+    sound: new Audio('sounds/sound1.mp3')
   },
   {
     flower: flowers[182],
     key: 'ArrowRight',
-    color: 'red'
+    color: 'red',
+    sound: new Audio('sounds/sound6.mp3')
   },
   {
     flower: flowers[179],
     key: 'ArrowDown',
-    color: 'purple'
+    color: 'purple',
+    sound: new Audio('sounds/sound3.mp3')
   },
   {
     flower: flowers[176],
     key: 'ArrowLeft',
-    color: 'grey'
+    color: 'grey',
+    sound: new Audio('sounds/sound4.mp3')
   },
   {
     flower: flowers[194],
     key: 'w',
-    color: 'green'
+    color: 'green',
+    sound: new Audio('sounds/sound5.mp3')
   },
   {
     flower: flowers[178],
     key: 'd',
-    color: 'orange'
+    color: 'orange',
+    sound: new Audio('sounds/sound6.mp3')
   },
   {
     flower: flowers[180],
     key: 's',
-    color: 'brown'
+    color: 'brown',
+    sound: new Audio('sounds/sound2.mp3')
   },
   {
     flower: flowers[196],
     key: 'a',
-    color: 'yellow'
+    color: 'yellow',
+    sound: new Audio('sounds/sound8.mp3')
   },
 ];
 
@@ -97,32 +105,38 @@ document.addEventListener('keydown', (event) => {
       buttons[0].flower.classList.add('glow');
     }
     else if (keyName == buttons[1].key) {
+      buttons[1].sound.play();
       animationRunning = true;
       effectOrigin.x = buttons[1].flower.dataset.x;
       effectOrigin.y = buttons[1].flower.dataset.y;
       window.requestAnimationFrame(pulse);
     }
     else if (keyName == buttons[2].key) {
+      buttons[2].sound.play();
       animationRunning = true;
       effectOrigin.x = 300;
       effectOrigin.y = 300;
       window.requestAnimationFrame(fill);
     }
     else if (keyName == buttons[3].key) {
+      buttons[3].sound.play();
       animationRunning = true;
       turnOn();
     }
     else if (keyName == buttons[4].key) {
+      buttons[4].sound.play();
       animationRunning = true;
       randomAppear();
     }
     else if (keyName == buttons[5].key) {
+      buttons[5].sound.play();
       animationRunning = true;
       effectOrigin.x = buttons[5].flower.dataset.x;
       effectOrigin.y = buttons[5].flower.dataset.y;
       window.requestAnimationFrame(pulse);
     }
     else if (keyName == buttons[6].key) {
+      buttons[6].sound.play();
       animationRunning = true;
       flowers.forEach(f => {
         f.style.animationDelay = Math.random() + 's';
@@ -135,6 +149,7 @@ document.addEventListener('keydown', (event) => {
       }, 5000)
     }
     else if (keyName == buttons[7].key) {
+      buttons[7].sound.play();
       animationRunning = true;
       effectOrigin.x = buttons[7].flower.dataset.x;
       effectOrigin.y = buttons[7].flower.dataset.y;
@@ -243,7 +258,7 @@ function turnOn() {
   flowers[currFlower].style.opacity = 1;
   if (currFlower < n-2) {
     currFlower++;
-    setTimeout(() => { turnOn(); }, 3);
+    setTimeout(() => { turnOn(); }, 6);
   }
   else {
     currFlower = 0;

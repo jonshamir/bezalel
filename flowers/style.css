@@ -30,16 +30,25 @@ body {
 }
 
 .flicker {
-  animation: flickerAnimation 1.5s ease-in-out infinite;
+  animation: flickerAnimation 1.5s ease-in-out 2;
 }
-
-.hidden {
-  opacity: 0;
-}
-
 
 @keyframes flickerAnimation {
   0%   { opacity: 0.1; }
   50%  { opacity: 1; }
   100% { opacity: 0.1; }
+}
+
+.glow {
+  animation: glowAnimation 2s ease-in-out infinite;
+}
+
+@keyframes glowAnimation {
+  0%   { opacity: 0.4; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.hidden {
+  opacity: 0;
 }

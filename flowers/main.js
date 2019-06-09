@@ -1,6 +1,7 @@
 var flowers = [];
 var n = 200;
 var scaleFactor = 10;
+var isStarted = false;
 var root = document.getElementById('root');
 
 for (var i = 1; i < n; i++) {
@@ -71,50 +72,73 @@ buttons = [
 //   b.flower.style.backgroundColor = b.color;
 // })
 
-buttons[0].flower.style.opacity = 1;
+// buttons[0].flower.style.opacity = 1;
+buttons[0].flower.classList.add('glow');
 
 var effectOrigin = {x: 0, y: 0};
 var animationRunning = false;
 
 document.addEventListener('keydown', (event) => {
-  if (!animationRunning) {
-    const keyName = event.key;
-    console.log(keyName);
+  const keyName = event.key;
+  if (!isStarted) {
     if (keyName == buttons[0].key) {
+      isStarted = true;
+      buttons[0].flower.classList.remove('glow');
       resetFlowers();
     }
-    if (keyName == buttons[1].key) {
+  }
+  else if (!animationRunning) {
+    console.log(keyName);
+    if (keyName == buttons[0].key) {
+      isStarted = false;
+      buttons.forEach(b => {
+        b.flower.style.opacity = 0.1;
+      })
+      buttons[0].flower.classList.add('glow');
+    }
+    else if (keyName == buttons[1].key) {
+      animationRunning = true;
       effectOrigin.x = buttons[1].flower.dataset.x;
       effectOrigin.y = buttons[1].flower.dataset.y;
       window.requestAnimationFrame(pulse);
     }
-    if (keyName == buttons[2].key) {
+    else if (keyName == buttons[2].key) {
+      animationRunning = true;
       effectOrigin.x = 300;
       effectOrigin.y = 300;
       window.requestAnimationFrame(fill);
     }
-    if (keyName == buttons[3].key) {
+    else if (keyName == buttons[3].key) {
+      animationRunning = true;
       turnOn();
     }
-    if (keyName == buttons[4].key) {
+    else if (keyName == buttons[4].key) {
+      animationRunning = true;
       randomAppear();
     }
-    if (keyName == buttons[5].key) {
+    else if (keyName == buttons[5].key) {
+      animationRunning = true;
       effectOrigin.x = buttons[5].flower.dataset.x;
       effectOrigin.y = buttons[5].flower.dataset.y;
       window.requestAnimationFrame(pulse);
     }
-    if (keyName == buttons[6].key) {
+    else if (keyName == buttons[6].key) {
+      animationRunning = true;
       flowers.forEach(f => {
         f.style.animationDelay = Math.random() + 's';
         f.style.animationDuration = 1+Math.random() + 's';
-
         f.classList.add('flicker');
       })
       setTimeout(()=> {
         flowers.forEach(f => { f.classList.remove('flicker'); })
         resetFlowers();
-      }, 4000)
+      }, 5000)
+    }
+    else if (keyName == buttons[7].key) {
+      animationRunning = true;
+      effectOrigin.x = buttons[7].flower.dataset.x;
+      effectOrigin.y = buttons[7].flower.dataset.y;
+      window.requestAnimationFrame(pulse2);
     }
   }
 })
@@ -123,7 +147,6 @@ var start = null;
 var duration = 3000;
 var radius = 600;
 function pulse(timestamp) {
-  animationRunning = true;
   if (!start) start = timestamp;
   var progress = (timestamp - start) / duration;
 
@@ -143,14 +166,37 @@ function pulse(timestamp) {
     start = null;
     setTimeout(() => {
       resetFlowers();
-      animationRunning = false;
     }, 800);
   }
 }
 
+function pulse2(timestamp) {
+  if (!start) start = timestamp;
+  var progress = (timestamp - start) / duration;
+
+  flowers.forEach(flower => {
+    flower.style.opacity = 0.1;
+    var dist = getDistance(effectOrigin, flower);
+    if (dist < radius*progress) {
+      flower.style.animationDelay = '0s';
+      flower.style.animationDuration = '1.5s';
+      flower.classList.add('flicker');
+    }
+  });
+
+  if (progress < 1) window.requestAnimationFrame(pulse2);
+  else {
+    start = null;
+    setTimeout(() => {
+      flowers.forEach(f => { f.classList.remove('flicker'); })
+      resetFlowers();
+    }, 2200);
+  }
+}
+
+
 var fillRadius = 300;
 function fill(timestamp) {
-  animationRunning = true;
   if (!start) start = timestamp;
   var progress = (timestamp - start) / duration;
 
@@ -170,7 +216,6 @@ function fill(timestamp) {
     start = null;
     setTimeout(() => {
       resetFlowers();
-      animationRunning = false;
     }, 10);
   }
 }
@@ -190,6 +235,7 @@ function resetFlowers() {
   buttons.forEach(b => {
     b.flower.style.opacity = 1;
   });
+  animationRunning = false;
 }
 
 var currFlower = 0;

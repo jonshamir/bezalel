@@ -10,7 +10,7 @@ body {
   color: #444;
   -webkit-font-smoothing: antialiased;
   line-height: 1.7em;
-  padding: 3em;
+  padding: 0;
   overflow-x: hidden;
 }
 
@@ -42,28 +42,68 @@ h2 {
   font-size: 6em;
   line-height: 0.6em;
   font-weight: 900;
-  margin-bottom: -24px;
+  margin-bottom: -21px;
   margin-right: -70px;
   z-index: 1;
   text-align: right;
+  margin-top: 40px;
 }
 
 p {
   text-align: right;
+  margin: 0.8em 0;
 }
 
 .hero {
+  position: relative;
   background-image: url(banner.jpg);
   background-size: cover;
   width: 100vw;
-  height: 50vh;
-  margin-right: -3em;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
 }
 
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #ffa200;
+  z-index: 1;
+  opacity: 0.75;
+  transition: opacity 400ms ease;
+}
+
+.article-title {
+  width: 80%;
+  height: 60%;
+  z-index: 4;
+}
+
+.article-title path {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 1px;
+  fill-rule: evenodd;
+  transition: stroke-width 400ms ease;
+}
+
+/* .hero:hover .article-title path {
+  stroke-width: 0px;
+}
+
+.hero:hover .backdrop {
+  opacity: 0.4;
+} */
+
 .article {
-  width: 450px;
+  width: 480px;
   margin: auto;
-  padding-top: 60px;
+  margin-bottom: 5em;
 }
 
 .summary {
@@ -71,15 +111,106 @@ p {
   font-family: "NextExit";
   font-weight: 100;
   font-family: "NextExit";
-  font-size: 3em;
+  font-size: 2.25em;
   line-height: 1em;
-  margin-top: -1em;
-  margin-right: -1.5em;
-  margin-left: -1.5em;
+  margin-right: -70px;
+  margin-left: -5px;
+  margin-top: 0.5em;
+}
+
+.author {
+  text-align: center;
+  color: #888;
+  margin-right: -70px;
+}
+
+figure {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  position: relative;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+figure.right {
+  margin-left: 1.2em;
+  margin-right: -160px;
+  float: right;
+}
+
+figure.left {
+  margin-right: 1.2em;
+  margin-left: -160px;
+  float: left;
+}
+
+figure img {
+  width: 100%;
+}
+
+figcaption {
+  position: absolute;
+  top: 100%;
+  width: 30%;
+  font-size: 0.8em;
+  font-weight: 500;
+  line-height: 1.2em;
+  padding-top: 1em;
+}
+
+figure.right figcaption {
+  text-align: right;
+  right: 0;
+}
+
+figure.left figcaption {
+  text-align: left;
+  left: 0;
+}
+
+figure .overlay {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: background 300ms ease;
+  cursor: zoom-in;
+}
+
+figure .overlay:hover {
+  /* background-color: rgba(255, 160, 20, 0.7); */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+figure .overlay:hover .zoom-text path {
+  stroke-width: 3px;
+  opacity: 1;
+  transition: stroke-width 500ms ease, opacity 200ms ease;
+}
+
+.zoom-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.zoom-text path {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 0px;
+  fill-rule: evenodd;
+  opacity: 0;
+  transition: stroke-width 300ms ease, opacity 300ms ease;
 }
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 100%;
@@ -95,6 +226,12 @@ header {
   width: 90px;
   cursor: pointer;
   font-weight: 500;
+  color: #888;
+  transition: color 300ms ease;
+}
+
+.nav-link:hover {
+  color: #000;
 }
 
 .logo {

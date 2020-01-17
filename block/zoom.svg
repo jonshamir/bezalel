@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="53" height="18" viewBox="0 0 53 18">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M14,8h7v2H14V8Zm6-6h9V4H20V2ZM33,2h6V4H33V2ZM43,2h8V4H43V2ZM31,8h6v2H31V8ZM16,14h5v2H16V14ZM14,2h2V8H14V2Zm5,8h2v4H19V10Zm6-6h2V16H25V4Zm6,6h2v6H31V10Zm6-6h2V16H37V4Zm6,4h2v8H43V8Zm6-4h2V16H49V4ZM2,2h8V4H2V2ZM2,8H4v8H2V8ZM8,4h2V16H8V4Z"/>
+</svg>

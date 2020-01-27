@@ -1,4 +1,50 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700&display=swap");
+@font-face {
+  font-family: NarkisBlockMF;
+  src: url("fonts/NarkisBlock-Regular");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: NarkisBlockMF;
+  src: url("fonts/NarkisBlock-Medium");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: NarkisBlockMF;
+  src: url("fonts/NarkisBlock-Bold");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: NarkisBlockMF;
+  src: url("fonts/NarkisBlock-Black");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: NextExit;
+  src: url("fonts/NextExitLight");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: NextExit;
+  src: url("fonts/NextExitRegular");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: NextExit;
+  src: url("fonts/NextExitBold");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: NextExit;
+  src: url("fonts/NextExitExtraBold");
+  font-weight: 800;
+}
 
 body {
   text-align: center;
@@ -9,9 +55,10 @@ body {
   font-family: "NarkisBlockMF", "Avenir Next", sans-serif;
   color: #444;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.7em;
+  line-height: 1.5em;
   padding: 0;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 .eng {
@@ -101,9 +148,9 @@ p {
 } */
 
 .article {
-  width: 480px;
+  width: 500px;
   margin: auto;
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 
 .summary {
@@ -145,6 +192,12 @@ figure.left {
   float: left;
 }
 
+figure.large {
+  width: 140%;
+  margin-right: -20%;
+  margin-bottom: 2.5em;
+}
+
 figure img {
   width: 100%;
 }
@@ -165,6 +218,11 @@ figure.right figcaption {
 }
 
 figure.left figcaption {
+  text-align: left;
+  left: 0;
+}
+
+figure.large figcaption {
   text-align: left;
   left: 0;
 }
@@ -209,6 +267,12 @@ figure .overlay:hover .zoom-text path {
   transition: stroke-width 300ms ease, opacity 300ms ease;
 }
 
+footer {
+  color: #999;
+  font-size: 0.8em;
+  margin-bottom: 2em;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -222,8 +286,22 @@ header {
   z-index: 10;
 }
 
+.progress-indicator {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.progress-indicator > div {
+  background-color: #ffa200;
+  width: 0%;
+  height: 100%;
+}
+
 .nav-link {
-  width: 90px;
+  width: 100px;
   cursor: pointer;
   font-weight: 500;
   color: #888;

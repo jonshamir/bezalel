@@ -1,19 +1,19 @@
 @font-face {
   font-family: NarkisBlockMF;
   src: url("fonts/NarkisBlock-Regular.otf");
-  font-weight: 300;
+  font-weight: 200;
 }
 
 @font-face {
   font-family: NarkisBlockMF;
   src: url("fonts/NarkisBlock-Medium.otf");
-  font-weight: 400;
+  font-weight: 600;
 }
 
 @font-face {
   font-family: NarkisBlockMF;
   src: url("fonts/NarkisBlock-Bold.otf");
-  font-weight: 600;
+  font-weight: 700;
 }
 
 @font-face {
@@ -25,13 +25,13 @@
 @font-face {
   font-family: NextExit;
   src: url("fonts/NextExitLight.otf");
-  font-weight: 300;
+  font-weight: 200;
 }
 
 @font-face {
   font-family: NextExit;
   src: url("fonts/NextExitRegular.otf");
-  font-weight: 400;
+  font-weight: 300;
 }
 
 @font-face {
@@ -163,6 +163,10 @@ p {
   margin-right: -70px;
   margin-left: -5px;
   margin-top: 0.5em;
+}
+
+.summary strong {
+  font-weight: 600;
 }
 
 .author {

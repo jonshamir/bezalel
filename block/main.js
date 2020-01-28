@@ -2,10 +2,15 @@ window.onscroll = function() {
   updateScroll();
 };
 
+document.getElementById("content").onscroll = function() {
+  updateScroll();
+};
+
 function updateScroll() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight;
+  var scrollEl = document.getElementById("content"); // document.documentElement
+  var winScroll = scrollEl.scrollTop;
+  var height = scrollEl.scrollHeight;
+  // console.log(scrollEl);
   var scrolled = (winScroll / height) * 115;
-  console.log(height);
   document.getElementById("progress-bar").style.width = scrolled + "%";
 }

@@ -354,9 +354,31 @@ figure .overlay:hover .zoom-text path {
 }
 
 footer {
-  color: #999;
+  color: #7a7a7a;
+  background-color: #ccc;
   font-size: 0.8em;
-  padding-bottom: 3em;
+  padding: 2em;
+  padding-bottom: 1.8em;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+footer .logo {
+  opacity: 0.5;
+  float: right;
+  margin: 0;
+  transition: opacity 300ms ease;
+  margin-left: 1.5em;
+}
+
+footer .logo:hover {
+  opacity: 0.8;
+}
+
+footer .social {
+  text-align: left;
+  flex-grow: 1;
 }
 
 .media-icon {
@@ -366,10 +388,62 @@ footer {
   opacity: 0.5;
   transition: opacity 300ms ease;
   padding: 10px;
+  vertical-align: middle;
 }
 
 .media-icon:hover {
   opacity: 0.8;
+}
+
+.elna::after,
+.gab::after {
+  content: "אלנה";
+  display: block;
+  position: absolute;
+  top: 0px;
+  width: 35px;
+  font-weight: 600;
+  margin-right: -48px;
+  /* background-color: red; */
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.elna:hover::after,
+.gab:hover::after {
+  opacity: 0.8;
+  transform: translateX(0);
+}
+
+.elna::after {
+  content: "אלנה";
+  right: -41px;
+}
+.gab::after {
+  content: "גאב";
+  right: -32px;
+}
+
+.elna::before,
+.gab::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -3px;
+  right: -45px;
+  height: 35px;
+  width: 35px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.elna::before {
+  background-image: url(images/profile-elna.png);
+}
+
+.gab::before {
+  background-image: url(images/profile-gab.png);
 }
 
 header {

@@ -95,12 +95,23 @@ h2 {
   margin-right: -70px;
   text-align: right;
   margin-top: 130px;
-  right: -70px;
+  right: -30px;
 
   z-index: 0;
   transform-origin: 0 50%;
   transform: translateZ(-1.5px) scale(1.2);
   opacity: 0.95;
+}
+
+h2 .number {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  transform: translateX(100%);
+  font-size: 2.2em;
+  font-weight: 600;
+  color: #ccc;
+  font-weight: 100;
 }
 
 p {
@@ -212,7 +223,7 @@ p {
 figure {
   padding: 0;
   margin: 0;
-  width: 80%;
+  width: 55%;
   position: relative;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
@@ -277,7 +288,7 @@ figure img {
 figcaption {
   position: absolute;
   top: 100%;
-  width: 30%;
+  width: 45%;
   font-size: 0.8em;
   font-weight: 600;
   line-height: 1.2em;
@@ -328,8 +339,8 @@ figure .overlay:hover .zoom-text path {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 30%;
-  height: 30%;
+  width: 45%;
+  height: 45%;
   transform: translate(-50%, -50%);
 }
 
@@ -345,7 +356,20 @@ figure .overlay:hover .zoom-text path {
 footer {
   color: #999;
   font-size: 0.8em;
-  margin-bottom: 3em;
+  padding-bottom: 3em;
+}
+
+.media-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 300ms ease;
+  padding: 10px;
+}
+
+.media-icon:hover {
+  opacity: 0.8;
 }
 
 header {

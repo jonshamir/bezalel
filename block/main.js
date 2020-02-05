@@ -80,7 +80,7 @@ function expandFigure(event, figure) {
 
     var transX = window.innerWidth / 2 - centerX;
     var transY = window.innerHeight / 2 - centerY;
-    img.style.transform = `translate(${transX}px,${transY}px) scale(1.8)`;
+    img.style.transform = `translate(${transX}px,${transY}px) scale(2.8)`;
     img.style.zIndex = "100";
     figure.style.zIndex = "100";
   }

@@ -20,6 +20,10 @@ body {
   font-size: 18px;
 }
 
+#root {
+  cursor: url("images/touch.png") 12 12, default;
+}
+
 button {
   border: 0;
   font-family: "Fira Sans", sans-serif;

@@ -10,10 +10,12 @@
   <body>
     <div id="root">
       <header>
-        <img src="images/logo.svg" class="logo" />
+        <div id="title">
+          <img src="images/logo.svg" class="logo" />
+        </div>
         <img src="images/icons/search.svg" class="search-icon" />
       </header>
-      <div class="content" id="post">
+      <div class="content" id="post" style="display: none;">
         <label>Message</label>
         <textarea placeholder="What's your fridge situation?"></textarea>
         <label>Ingredients</label>
@@ -36,11 +38,11 @@
       </div>
 
       <div class="content" id="challenges" style="display: none;">
-        <div class="challenge-post">
+        <div class="challenge-post" onclick="goto('suggest')">
           <div class="profile-data">
             <img src="images/profiles/jenny.png" />
             jenny.da.kook
-            <button>suggest</button>
+            <button>suggest ›</button>
           </div>
           <div class="challenge-ingredients">
             <div class="ingredient">
@@ -62,7 +64,7 @@
           <div class="profile-data">
             <img src="images/profiles/gavish.jpg" />
             erez_krystal
-            <button>suggest</button>
+            <button>suggest ›</button>
           </div>
           <div class="challenge-ingredients">
             <div class="ingredient">
@@ -84,7 +86,7 @@
           <div class="profile-data">
             <img src="images/profiles/viki.jpg" />
             atlantis
-            <button>suggest</button>
+            <button>suggest ›</button>
           </div>
           <div class="challenge-ingredients">
             <div class="ingredient">
@@ -106,7 +108,7 @@
           <div class="profile-data">
             <img src="images/profiles/jenny.png" />
             jenny.da.kook
-            <button>suggest</button>
+            <button>suggest ›</button>
           </div>
           <div class="challenge-ingredients">
             <div class="ingredient">
@@ -122,6 +124,86 @@
               <img src="images/ingredients/garlic.jpg" />
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="content" id="suggest" style="display: none;">
+        <div class="challenge-post">
+          <div class="profile-data">
+            <img src="images/profiles/jenny.png" />
+            jenny.da.kook
+          </div>
+          <div class="challenge-ingredients">
+            <div class="ingredient">
+              <img src="images/ingredients/potatoes.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/flour.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/dates.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/lemons.jpg" />
+            </div>
+          </div>
+        </div>
+        <textarea placeholder="Your suggestion"></textarea>
+        <textarea placeholder="Link recipe"></textarea>
+        <textarea placeholder="Add photos"></textarea>
+        <textarea placeholder="Message" style="height: 7em;"></textarea>
+        <button class="app-button">Submit</button>
+      </div>
+
+      <div class="content" id="suggestions" style="display: none;">
+        <div class="challenge-post">
+          <div class="challenge-ingredients">
+            <div class="ingredient">
+              <img src="images/ingredients/potatoes.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/flour.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/dates.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/lemons.jpg" />
+            </div>
+          </div>
+        </div>
+        <div class="suggestion-item" onclick="goto('chat')">
+          <span class="title">Lemon-brocolli frittata</span><br /><span
+            class="author"
+            >Anat Katzrin</span
+          >
+          <div class="go">›</div>
+        </div>
+        <div class="suggestion-item">
+          <span class="title">Lemon cake with eggs</span><br /><span
+            class="author"
+            >Viki Atlantis</span
+          >
+          <div class="go">›</div>
+        </div>
+        <div class="suggestion-item">
+          <span class="title">Broccoli Soup with lemon</span><br /><span
+            class="author"
+            >Michelle Cashew</span
+          >
+          <div class="go">›</div>
+        </div>
+      </div>
+
+      <div class="content" id="chat">
+        <div class="chat-message">Lemon-brocolli frittata</div>
+        <div
+          class="chat-message image-message"
+          style="background-image: url(images/photos/pizza.jpg)"
+        ></div>
+        <div class="chat-form">
+          <textarea placeholder="Message Anat"></textarea>
+          <button class="app-button">Send</button>
         </div>
       </div>
 
@@ -164,7 +246,55 @@
       </div>
 
       <div class="content" id="profile" style="display: none;">
-        Profile
+        <div class="profile-data">
+          <img src="images/profiles/evil.png" />
+          jennys.evil.twin
+          <img src="images/icons/cog.svg" class="settings-icon" />
+        </div>
+
+        <div class="section">
+          <div class="section-title">My Challanges</div>
+          <div class="challenge-ingredients" onclick="goto('suggestions')">
+            <div class="ingredient">
+              <img src="images/ingredients/potatoes.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/flour.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/dates.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/lemons.jpg" />
+            </div>
+            <div class="notifications">3 ›</div>
+          </div>
+          <div class="challenge-ingredients">
+            <div class="ingredient">
+              <img src="images/ingredients/black_pepper.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/butter.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/cheese.jpg" />
+            </div>
+            <div class="ingredient">
+              <img src="images/ingredients/celery.jpg" />
+            </div>
+            <div class="go">›</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Completed Challanges</div>
+          <div class="gallery">
+            <img src="images/photos/chicken.jpg" /><img
+              src="images/photos/pizza.jpg"
+            /><img src="images/photos/cookies.jpg" /><img
+              src="images/photos/pizza.jpg"
+            />
+          </div>
+        </div>
       </div>
 
       <nav>

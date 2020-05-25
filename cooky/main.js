@@ -1,3 +1,15 @@
+var titles = {
+  feed: '<img src="images/logo.svg" class="logo" />',
+  challenges: "Challenges",
+  profile: "Profile",
+  post: "Create",
+  suggest: "<div class='back' onclick='goto(\"challenges\")'>‹</div>Suggest",
+  suggestions:
+    "<div class='back' onclick='goto(\"profile\")'>‹</div>Suggestions",
+  chat:
+    "<div class='back' onclick='goto(\"suggestions\")'>‹</div>Anat's Suggestion"
+};
+
 window.addEventListener("load", function() {
   navIcons = document.querySelectorAll(".nav-icon");
 
@@ -7,15 +19,25 @@ window.addEventListener("load", function() {
   });
 });
 
+function goto(screenId) {
+  showScreen(false, screenId);
+}
+
 function showScreen(navIcon, screenId) {
-  console.log(navIcon);
   document.querySelectorAll(".content").forEach((screen, i) => {
     screen.style.display = "none";
   });
   document.getElementById(screenId).style.display = "block";
 
-  document.querySelectorAll(".nav-icon").forEach((icon, i) => {
-    icon.classList.remove("active");
-  });
-  navIcon.classList.add("active");
+  if (navIcon) {
+    document.querySelectorAll(".nav-icon").forEach((icon, i) => {
+      icon.classList.remove("active");
+    });
+    navIcon.classList.add("active");
+  }
+
+  // Change title
+  document.getElementById("title").innerHTML = titles[screenId];
 }
+
+goto("feed");

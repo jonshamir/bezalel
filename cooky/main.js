@@ -38,6 +38,7 @@ function showScreen(navIcon, screenId) {
 
   // Change title
   document.getElementById("title").innerHTML = titles[screenId];
+  window.scrollTo(0, 0);
 }
 
 goto("feed");

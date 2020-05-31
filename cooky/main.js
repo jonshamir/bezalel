@@ -2,7 +2,7 @@ var titles = {
   feed: '<img src="images/logo.svg" class="logo" />',
   challenges: "Challenges",
   profile: "Profile",
-  post: "Create",
+  post: "Create Challenge",
   suggest: "<div class='back' onclick='goto(\"challenges\")'>‹</div>Suggest",
   suggestions:
     "<div class='back' onclick='goto(\"profile\")'>‹</div>Suggestions",

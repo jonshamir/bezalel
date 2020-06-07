@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+    <title>COOKY</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="flickity.css" />
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16" />
+  </head>
+
+  <body>
+    <div id="root">
+      <a href="index.html" class="skip-button">
+        Skip
+      </a>
+      <div class="main-carousel">
+        <div class="carousel-cell">
+          <p>
+            <img
+              src="images/onboard/logo-orange.svg"
+              style="width: 50%; margin: -30px auto 90px auto; display: block;"
+            />
+
+            You are hungry. <br />
+            The coronavirus is spreading outside.<br />
+            No way you’re going out today!<br />
+            But you’re hungry.<br />
+            Let’s check what’s in the fridge…
+          </p>
+        </div>
+        <div class="carousel-cell">
+          <p>
+            <img src="images/onboard/fridge.png" />
+            But what are you supposed to do with all this?<br />
+            Cooky can help!
+          </p>
+        </div>
+        <div class="carousel-cell">
+          <h2>Step 1</h2>
+          <p>
+            Create a Challenge - describe your fridge situation Select the
+            ingredients you have at home
+          </p>
+          <img src="images/onboard/ingredients.png" />
+        </div>
+        <div class="carousel-cell">
+          <h2>Step 2</h2>
+          <p>
+            Friends and people from all around the world can suggest recipes and
+            ideas
+          </p>
+          <img src="images/onboard/dishes.png" />
+        </div>
+        <div class="carousel-cell">
+          <h2>Step 3</h2>
+          <p>
+            Select the best suggestion and get cook(y)ing!
+          </p>
+          <img
+            src="images/onboard/cooky.png"
+            style="width: 70%;
+    margin: 40px;"
+          />
+
+          <a href="index.html">
+            <button class="app-button">Let’s go!</button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="flickity.pkgd.min.js"></script>
+    <script type="text/javascript">
+      var elem = document.querySelector(".main-carousel");
+      var flkty = new Flickity(elem, {
+        // options
+        cellAlign: "left",
+        contain: true
+      });
+
+      // element argument can be a selector string
+      //   for an individual element
+      var flkty = new Flickity(".main-carousel", {
+        // options
+      });
+    </script>
+  </body>
+</html>

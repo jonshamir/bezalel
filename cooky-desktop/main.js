@@ -1,15 +1,3 @@
-var titles = {
-  feed: "Completed Challenges", // '<img src="images/logo.svg" class="logo" />',
-  challenges: "Open Challenges",
-  profile: "Profile",
-  post: "Create Challenge",
-  suggest: "<div class='back' onclick='goto(\"challenges\")'>‹</div>Suggest",
-  suggestions:
-    "<div class='back' onclick='goto(\"profile\")'>‹</div>Suggestions",
-  chat:
-    "<div class='back' onclick='goto(\"suggestions\")'>‹</div>Anat's Suggestion"
-};
-
 window.addEventListener("load", function() {
   navIcons = document.querySelectorAll(".nav-icon");
 
@@ -35,10 +23,25 @@ function showScreen(navIcon, screenId) {
     });
     navIcon.classList.add("active");
   }
-
-  // Change title
-  document.getElementById("title").innerHTML = titles[screenId];
   window.scrollTo(0, 0);
+}
+
+var isChatOpen = false;
+function toggleChat() {
+  var chat = document.getElementById("floating-chat");
+  if (isChatOpen) chat.classList.add("closed");
+  else chat.classList.remove("closed");
+
+  isChatOpen = !isChatOpen;
+}
+
+var areSuggestionsOpen = false;
+function toggleSuggestions() {
+  var suggestions = document.getElementById("suggestions-inline");
+  if (areSuggestionsOpen) suggestions.classList.add("closed");
+  else suggestions.classList.remove("closed");
+
+  areSuggestionsOpen = !areSuggestionsOpen;
 }
 
 goto("feed");

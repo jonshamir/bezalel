@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&display=swap");
+
+:root {
+  --bg-color: #ddddd;
+  --text-color: #444444;
+}
+
+body {
+  text-align: center;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  font-family: "Miriam Libre", sans-serif;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5em;
+  overflow-x: hidden;
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.hero {
+  background-color: var(--text-color);
+  color: #fff;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+.content {
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+p {
+  text-align: right;
+  line-height: 1.8em;
+  color: #666666;
+}
+
+.title-right {
+  text-align: left;
+  margin-left: 45%;
+}
+
+.title-left {
+  direction: ltr;
+  text-align: right;
+  margin-right: 45%;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 3.5em;
+  line-height: 1.3em;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.main-menu {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.main-menu a {
+  padding: 1em 1.5em;
+  text-decoration: none;
+  /* color: var(--text-color); */
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+.logo {
+  background-color: #fff;
+  width: 1.25em;
+  height: 1.25em;
+  margin-left: 2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.academy-logo {
+  height: 4em;
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.columns {
+  display: flex;
+}
+
+.columns > div {
+  padding: 2em;
+  flex: 1 1 0px;
+}
+
+.headline {
+  font-size: 2em;
+  color: var(--text-color);
+  line-height: 1.1em;
+  width: 90%;
+  margin: auto;
+}

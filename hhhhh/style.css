@@ -22,11 +22,14 @@ body {
 
 .volume {
   text-align: left;
-  margin-top: 40%;
+  margin-top: 50vh;
 }
 
 .volumeTitle {
   width: 155px;
+}
+#volumeBar {
+  height: 35px;
 }
 
 #volumeBar img {
